@@ -12,8 +12,14 @@ public class HitMe : MonoBehaviour
     int counter = 0;
 
     private void Start()
-    {
-        countertext.text = "0";
+	{
+		CheckInitialOiantation();
+		countertext.text = "0";
+		OrientationManager.orientationChangedEvent += ChangeCircleSize;
+	}
+	private void OnDestroy()
+	{
+		OrientationManager.orientationChangedEvent -= ChangeCircleSize;
     }
 
     public void Hitme()
@@ -27,6 +33,29 @@ public class HitMe : MonoBehaviour
         countertext.text = counter.ToString();
     }
 
+    void ChangeCircleSize(ScreenOrientation orientation)
+    {
+        Debug.Log("ChangeCircleSize");
+        if (orientation == ScreenOrientation.Portrait)
+        {
+            circle.gameObject.transform.localScale = Vector3.one / 2;
+        }
+        else
+        {
+
+        }
+    }
+    void CheckInitialOiantation()
+    {
+        if (Screen.orientation == ScreenOrientation.Portrait)
+        {
+            circle.gameObject.transform.localScale = Vector3.one / 2;
+        }
+        else if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
+        {
+            circle.gameObject.transform.localScale = Vector3.one;
+        }
+    }
 
 
 
