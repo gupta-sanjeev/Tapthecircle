@@ -38,12 +38,13 @@ public class HitMe : MonoBehaviour
         Debug.Log("ChangeCircleSize");
         if (orientation == ScreenOrientation.Portrait)
         {
-            circle.gameObject.transform.localScale = Vector3.one / 2;
+           circle.gameObject.transform.localScale = Vector3.one / 2;
         }
-        else
+        else if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
         {
-
+            circle.gameObject.transform.localScale = Vector3.one*1.2f;
         }
+        
     }
     void CheckInitialOiantation()
     {
@@ -53,7 +54,7 @@ public class HitMe : MonoBehaviour
         }
         else if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
         {
-            circle.gameObject.transform.localScale = Vector3.one;
+            circle.gameObject.transform.localScale = Vector3.one*1.2f;
         }
     }
 
