@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// This script blongs to circle player whose fuctionallity
+/// is to chnage corour when user hint on to the circle.
+/// 
+/// </summary>
 public class HitMe : MonoBehaviour
 {
     public Camera mainCamera;
@@ -11,6 +16,9 @@ public class HitMe : MonoBehaviour
     public TextMeshProUGUI countertext;
     int counter = 0;
 
+    /// <summary>
+    /// this fu
+    /// </summary>
     private void Start()
 	{
         ChangeCircleSize(Screen.orientation);
